@@ -1,0 +1,20 @@
+USE vir_db;
+
+
+INSERT OVERWRITE TABLE vir_db.student_info PARTITION(partition_mst_date='${hiveconf:history_ts}')
+SELECT
+    student_id                            BIGINT
+  ,batch_typeid                         INT
+  ,student_name                         STRING
+  ,nick_name                            STRING
+  ,school_name                          STRING
+  ,joining_date                         TIMESTAMP
+  ,last_date                            TIMESTAMP
+  ,hindi_marks                          INT
+  ,maths_marks                          INT
+  ,pyschics_marks                       INT
+  ,social_marks                         INT
+  ,english_marks                        INT
+FROM
+  vir_db.student_status
+;
