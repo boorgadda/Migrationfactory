@@ -1,0 +1,1 @@
+INSERT INTO table internaldemodb.employee2 values(509, 'pranith', 5000000,'delivery');
